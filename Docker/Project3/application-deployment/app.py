@@ -10,7 +10,6 @@ app.config['MYSQL_HOST'] = "mysql"
 #app.config['MYSQL_PORT'] = 3706
 app.config['MYSQL_USER'] = os.environ['mysql_user']
 app.config['MYSQL_PASSWORD'] = os.environ['mysql_password']
-app.config['MYSQL_MESSAGE'] = os.environ['mysql_message']
 app.config['MYSQL_DB'] = os.environ['mysql_db']
 
 
@@ -23,7 +22,6 @@ def index():
         userDetails = request.form
         name = userDetails['name']
         email = userDetails['email']
-        message = userdetails['message']
         cur = mysql.connection.cursor()
         cur.execute("INSERT INTO users(name, email) VALUES(%s, %s)",(name, email))
         mysql.connection.commit()
