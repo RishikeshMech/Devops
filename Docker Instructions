@@ -1,0 +1,18 @@
+Instruction	  Description
+FROM	        Specifies the base image (e.g., FROM ubuntu, FROM node:20)
+LABEL		      Adds metadata (e.g., maintainer info: LABEL maintainer="you@example.com")
+ENV			      Sets environment variables (ENV NODE_ENV=production)
+ARG			      Defines a build-time variable (ARG APP_VERSION=1.0)
+WORKDIR	  	  Sets the working directory inside the container (WORKDIR /app)
+COPY		      Copies files/folders from host to container (COPY src/ /app/src/)
+ADD		        Like COPY but also supports remote URLs and auto-unzips archives (ADD file.zip /app/)
+RUN			      Runs a shell command during image build (RUN apt update && apt install -y nginx)
+CMD	          Default command when container starts (CMD ["node", "server.js"])
+ENTRYPOINT	  Configures a container to run as an executable (ENTRYPOINT ["python3", "script.py"])
+EXPOSE		    Documents the port number the container listens on (EXPOSE 8080)
+VOLUME		    Creates a mount point for a volume (VOLUME /data)
+USER		      Sets the user to run the container (USER node)
+SHELL		      Changes the shell used in RUN commands (SHELL ["/bin/bash", "-c"])
+HEALTHCHECK	  Checks container health (`HEALTHCHECK CMD curl --fail http://localhost:80
+ONBUILD		    Triggers instructions when the image is used as a base (ONBUILD COPY . /app)
+STOPSIGNAL	  Sets system signal to stop the container (STOPSIGNAL SIGTERM)
