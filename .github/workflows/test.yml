@@ -1,0 +1,22 @@
+name: Sample-Testing
+
+on: 
+
+  workflow_dispatch:
+
+    inputs:
+      name: 
+        description: "Person To Great!!"
+        default: "Rishikesh"
+        required: true
+      org:
+        description: "Enter Org Belongs To"
+        default: "LTIM"
+        required: true
+jobs:
+  great:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: send greeting 
+        run: echo "Hello ${{github.event.inputs.name}} Welcome To ${{github.event.inputs.org}}"
